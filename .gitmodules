@@ -1,6 +1,6 @@
 [submodule "clock_publisher"]
 	path = clock_publisher
-	url = https://github.com/hsgwa/clock_publisher.git
+	url = https://ghproxy.com/https://github.com/hsgwa/clock_publisher.git
 [submodule "clock_recorder"]
 	path = clock_recorder
-	url = https://github.com/hsgwa/clock_recorder.git
+	url = https://ghproxy.com/https://github.com/hsgwa/clock_recorder.git
