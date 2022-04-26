@@ -6,10 +6,25 @@
   "nodes": [
     {
       "name": "/sensor_dummy_node",
+      "callback_dependency": {
+        "": ""
+      },
       "publish": {
         "/topic1": "",
         "/topic2": ""
-      }
+      },
+      "callbacks": [
+        {
+          "type": "timer_callback",
+          "period": 90909090,
+          "symbol": "SensorDummy::SensorDummy()::{lambda()#1}"
+        },
+        {
+          "type": "timer_callback",
+          "period": 142857142,
+          "symbol": "SensorDummy::SensorDummy()::{lambda()#2}"
+        }
+      ]
     },
     {
       "name": "/no_dependency_node",
@@ -26,10 +41,18 @@
     },
     {
       "name": "/timer_dependency_node",
+      "callback_dependency": {
+        "": ""
+      },
       "publish": {
-        "/topic6": "TimerDependencyNode::TimerDependencyNode()::{lambda(std::unique_ptr<sensor_msgs::msg::Image>)#1}"
+        "/topic6": ""
       },
       "callbacks": [
+        {
+          "type": "timer_callback",
+          "period": 333333333,
+          "symbol": "TimerDependencyNode::TimerDependencyNode()::{lambda()#2}"
+        },
         {
           "type": "subscribe_callback",
           "topic_name": "/topic4",
