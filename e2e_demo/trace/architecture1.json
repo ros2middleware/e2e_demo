@@ -1,0 +1,46 @@
+{
+  "target_path": {
+    "start_node_name": "/sensor_dummy_node",
+    "end_node_name": "/no_dependency_node"
+  },
+  "nodes": [
+    {
+      "name": "/sensor_dummy_node",
+      "callback_dependency": {
+        "": ""
+      },
+      "publish": {
+        "/topic1": "SensorDummy::SensorDummy()::{lambda()#1}",
+        "/topic2": "SensorDummy::SensorDummy()::{lambda()#2}"
+      },
+      "callbacks": [
+        {
+          "type": "timer_callback",
+          "period": 90909090,
+          "symbol": "SensorDummy::SensorDummy()::{lambda()#1}"
+        },
+        {
+          "type": "timer_callback",
+          "period": 142857142,
+          "symbol": "SensorDummy::SensorDummy()::{lambda()#2}"
+        }
+      ]
+    },
+    {
+      "name": "/no_dependency_node",
+      "publish": {
+        "/topic3": "NoDependencyNode::NoDependencyNode()::{lambda(std::unique_ptr<sensor_msgs::msg::Image>)#1}"
+      },
+      "callbacks": [
+        {
+          "type": "subscribe_callback",
+          "topic_name": "/topic1",
+          "symbol": "NoDependencyNode::NoDependencyNode()::{lambda(std::unique_ptr<sensor_msgs::msg::Image>)#1}"
+        }
+      ]
+    }
+  ],
+  "path_name_alias": {
+    "NoDependencyNode::NoDependencyNode()::{lambda(std::unique_ptr<sensor_msgs::msg::Image>)#1}": "dependency_node_callback"
+  }
+}
